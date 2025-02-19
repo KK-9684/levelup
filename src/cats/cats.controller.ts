@@ -9,10 +9,10 @@ import {
   Delete,
 } from '@nestjs/common';
 import { Request } from 'express';
-import { CreateCatDto } from './create-cat.dto';
-import { UpdateCatDto } from './update-cat.dto';
+import { CreateCatDto } from './dto/create-cat.dto';
+import { UpdateCatDto } from './dto/update-cat.dto';
 import { CatsService } from './cats.service';
-import { Cat } from '../interfaces/cat.interface';
+import { Cat } from './interfaces/cat.interface';
 
 interface FindOneParams {
   id: string;
