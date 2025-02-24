@@ -7,12 +7,14 @@ import {
   Body,
   Put,
   Delete,
+  UseFilters,
 } from '@nestjs/common';
 import { Request } from 'express';
 import { CreateCatDto } from './dto/create-cat.dto';
 import { UpdateCatDto } from './dto/update-cat.dto';
 import { CatsService } from './cats.service';
 import { Cat } from './interfaces/cat.interface';
+import { HttpExceptionFilter } from 'src/utils/http-exception.filter';
 
 interface FindOneParams {
   id: string;
@@ -23,6 +25,7 @@ export class CatsController {
   constructor(private catsService: CatsService) {}
 
   @Post()
+  @UseFilters(new HttpExceptionFilter())
   create(@Body() createCatDto: CreateCatDto) {
     this.catsService.create(createCatDto);
   }
