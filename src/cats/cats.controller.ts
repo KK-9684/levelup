@@ -10,6 +10,7 @@ import {
   UseFilters,
   ParseIntPipe,
   UsePipes,
+  UseGuards,
 } from '@nestjs/common';
 import { Request } from 'express';
 import { CatsService } from './cats.service';
@@ -18,12 +19,14 @@ import { HttpExceptionFilter } from 'src/utils/http-exception.filter';
 import { CatsValidationPipe } from 'src/pipes/cats.validation.pipe';
 import { ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';
 import { CatDto } from './dto/cat.dto';
+import { RolesGuard } from 'src/guards/roles.guard';
 
 export interface FindOneParams {
   id: number;
 }
 
 @Controller('cats')
+@UseGuards(RolesGuard)
 export class CatsController {
   constructor(private catsService: CatsService) {}
 
