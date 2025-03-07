@@ -1,7 +1,9 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, UseInterceptors } from '@nestjs/common';
 import { ApiResponse, ApiOperation } from '@nestjs/swagger';
+import { LoggingInterceptor } from './interceptors/logging.interceptor';
 
 @Controller()
+@UseInterceptors(LoggingInterceptor)
 export class AppController {
   @Get()
   @ApiOperation({ summary: 'Get a greeting message' })
@@ -11,7 +13,7 @@ export class AppController {
     type: String,
   })
   getHello(): string {
-    return 'Hello, World!';
+    return 'Hello World!';
   }
 
   @Get('ping')
