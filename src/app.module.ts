@@ -9,7 +9,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CatsModule } from './cats/cats.module';
 import { LoggerMiddleware } from './logger/logger.middleware';
-import { HttpExceptionFilter } from './utils/http-exception.filter';
+import { HttpExceptionFilter } from './utils/httpException.filter';
 @Module({
   imports: [CatsModule],
   exports: [CatsModule],

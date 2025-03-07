@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { HttpExceptionFilter } from './utils/http-exception.filter';
+import { HttpExceptionFilter } from './utils/httpException.filter';
 // import { LoggerMiddleware } from './logger/logger.middleware';
 
 async function bootstrap() {

@@ -15,11 +15,11 @@ import {
 import { Request } from 'express';
 import { CatsService } from './cats.service';
 import { Cat } from './interfaces/cat.interface';
-import { HttpExceptionFilter } from 'src/utils/http-exception.filter';
 import { CatsValidationPipe } from 'src/pipes/cats.validation.pipe';
 import { ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';
 import { CatDto } from './dto/cat.dto';
 import { RolesGuard } from 'src/guards/roles.guard';
+import { HttpExceptionFilter } from 'src/utils/httpException.filter';
 
 export interface FindOneParams {
   id: number;
